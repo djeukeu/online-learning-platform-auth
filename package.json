@@ -1,0 +1,21 @@
+{
+  "name": "online-learning-platform-auth",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "devDependencies": {
+    "env-cmd": "^10.1.0",
+    "nodemon": "^3.1.10",
+    "ts-node": "^10.9.2",
+    "tsconfig-paths": "^4.2.0",
+    "typescript": "^5.8.3"
+  },
+  "scripts": {
+    "start": "node dist/server.js",
+    "start:dev": "env-cmd -f .env.development nodemon",
+    "build": "tsc && resolve-tspaths",
+    "pretty": "prettier --write ./src/**/* ",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix"
+  }
+}
