@@ -3,8 +3,9 @@ import { createServer } from 'http';
 import config from 'src/config';
 import healthcheck from 'src/routes/healthcheck';
 import { app } from 'src/services/express';
+import log from 'src/logger';
 
-const startServer = async () => {
+const server = async () => {
     const httpServer = createServer(app);
 
     app.get('/health', healthcheck);
@@ -13,13 +14,13 @@ const startServer = async () => {
         httpServer.listen({ port: config.port }, resolve)
     )
         .then(() => {
-            console.log(
+            log.info(
                 `🚀 ${config.app_name} Service running on port: ${config.port}`
             );
         })
         .catch((err) => {
-            console.log(err);
+            log.error(err);
         });
 };
 
-startServer();
+server();

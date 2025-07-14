@@ -39,6 +39,7 @@ export default defineConfig([
             'prettier/prettier': 'error',
             'import/no-unresolved': 'off',
             'linebreak-style': ['error', 'unix'],
+            'no-console': 'warn',
         },
         settings: {
             'import/parsers': {
