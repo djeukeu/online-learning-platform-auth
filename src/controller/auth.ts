@@ -77,7 +77,3 @@ export const registerController = async (req: Request, res: Response) => {
         token,
     });
 };
-
-export const logoutController = async (_req: Request, res: Response) => {
-    res.json({ message: 'OK' });
-};
