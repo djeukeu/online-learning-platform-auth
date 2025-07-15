@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 import { Response, Request } from 'express';
 import { validationResult } from 'express-validator';
 
