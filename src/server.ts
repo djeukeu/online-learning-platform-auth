@@ -5,6 +5,8 @@ import healthcheck from 'src/routes/healthcheck';
 import { app } from 'src/services/express';
 import log from 'src/logger';
 import { Prisma } from 'src/services/prisma';
+import userRouter from './routes/user';
+import authRouter from './routes/auth';
 
 const server = async () => {
     const httpServer = createServer(app);
@@ -13,6 +15,8 @@ const server = async () => {
     await prisma.start();
 
     app.get('/health', healthcheck);
+    app.use('/auth', authRouter);
+    app.use('/user', userRouter);
 
     new Promise<void>((resolve) =>
         httpServer.listen({ port: config.port }, resolve)
