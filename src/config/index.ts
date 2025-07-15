@@ -15,6 +15,11 @@ const conf = convict({
             default: 'online-learning-auth',
             env: 'APP_NAME',
         },
+        secret_key: {
+            format: 'String',
+            default: '',
+            env: 'JWT',
+        },
     },
 });
 conf.validate({ allowed: 'strict' });

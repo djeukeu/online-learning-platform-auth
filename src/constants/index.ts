@@ -1,0 +1,5 @@
+export const UNAUTHENTICATED = 'UNAUTHENTICATED';
+export const USER_EXIST = 'USER_EXIST';
+export const USER_NOT_FOUND = 'USER_NOT_FOUND';
+export const WRONG_PASSWORD = 'WRONG_PASSWORD';
+export const BAD_REQUEST = 'BAD_REQUEST';
