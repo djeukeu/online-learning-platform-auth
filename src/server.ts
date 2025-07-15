@@ -4,9 +4,13 @@ import config from 'src/config';
 import healthcheck from 'src/routes/healthcheck';
 import { app } from 'src/services/express';
 import log from 'src/logger';
+import { Prisma } from 'src/services/prisma';
 
 const server = async () => {
     const httpServer = createServer(app);
+
+    const prisma = new Prisma();
+    await prisma.start();
 
     app.get('/health', healthcheck);
 
