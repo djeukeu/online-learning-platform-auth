@@ -5,11 +5,11 @@ import {
     logoutController,
     registerController,
 } from 'src/controller/auth';
-import { registerSchema } from 'src/schema/auth';
+import { loginSchema, registerSchema } from 'src/schema/auth';
 
 const authRouter = Router();
 
-authRouter.post('/login', loginController);
+authRouter.post('/login', loginSchema, loginController);
 
 authRouter.post('/signup', registerSchema, registerController);
 

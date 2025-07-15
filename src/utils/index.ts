@@ -1,4 +1,5 @@
 import hashGenerator from './hashGenerator';
 import tokenGenerator from './tokenGenerator';
+import isHash from './isHash';
 
-export { hashGenerator, tokenGenerator };
+export { hashGenerator, tokenGenerator, isHash };
