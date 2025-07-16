@@ -18,6 +18,7 @@ export default defineConfig([
             importPlugin.flatConfigs.typescript,
         ],
         rules: {
+            'import/no-unresolved': 'off',
             'import/order': [
                 'error',
                 {
@@ -37,7 +38,6 @@ export default defineConfig([
     {
         rules: {
             'prettier/prettier': 'error',
-            'import/no-unresolved': 'off',
             'linebreak-style': ['error', 'unix'],
             'no-console': 'warn',
         },
