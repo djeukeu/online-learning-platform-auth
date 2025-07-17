@@ -18,14 +18,13 @@ jobs:
               with:
                 dotnet-version: '3.1.x'
             - name: Setup Gitversion
-              uses: gittools/actions/gitversion/setup@v1.1.1
+              uses: gittools/actions/gitversion/setup@v4.0.1
               with:
-                versionSpec: '5.12.0'
+                versionSpec: '6.3.0'
             - name: Execute Gitversion
               id: gitversion
               uses: gittools/actions/gitversion/execute@v1.1.1
               with:
-                useConfigFile: true
                 configFilePath: GitVersion.yml
             - name: Read node version
               id: nvmrc
