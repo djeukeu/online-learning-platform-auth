@@ -15,8 +15,8 @@ const server = async () => {
     await prisma.start();
 
     app.get('/health', healthcheck);
-    app.use('/auth', authRouter);
-    app.use('/user', userRouter);
+    app.use('/api/auth', authRouter);
+    app.use('/api/user', userRouter);
 
     new Promise<void>((resolve) =>
         httpServer.listen({ port: config.port }, resolve)
