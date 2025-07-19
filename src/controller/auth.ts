@@ -37,7 +37,7 @@ export const loginController = async (req: Request, res: Response) => {
         });
     }
 
-    const token = tokenGenerator(userExit.id);
+    const token = tokenGenerator(userExit.id, userExit.role);
     res.status(200).json({
         user: userExit,
         token,
@@ -52,7 +52,6 @@ export const registerController = async (req: Request, res: Response) => {
     }
 
     const data = req.body;
-
     const userExit = await readUserByEmail(data.email);
     if (userExit) {
         res.status(401).json({
@@ -67,10 +66,11 @@ export const registerController = async (req: Request, res: Response) => {
         firstname: data.firstname,
         lastname: data.lastname,
         email: data.email,
+        role: data?.role?.toUpperCase(),
         hash,
     };
     const user = await createUser(newUser as any);
-    const token = tokenGenerator(user.id);
+    const token = tokenGenerator(user.id, user.role);
 
     res.status(200).json({
         user,

@@ -3,8 +3,8 @@ import ms from 'ms';
 
 import config from 'src/config';
 
-const tokenGenerator = (id: string) => {
-    const token = sign({ id }, config.secret_key as string, {
+const tokenGenerator = (id: string, role: string) => {
+    const token = sign({ id, role }, config.secret_key as string, {
         expiresIn: ms('1h'),
     });
     return token;

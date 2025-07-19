@@ -10,6 +10,13 @@ export const registerSchema = checkSchema(
             errorMessage: 'Invalid lastname',
             isString: true,
         },
+        role: {
+            isIn: {
+                options: [['student', 'admin', 'instructor']],
+                errorMessage: 'Invalid role',
+            },
+            optional: true,
+        },
         email: {
             errorMessage: 'Invalid email',
             isEmail: true,
