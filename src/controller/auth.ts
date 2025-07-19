@@ -20,8 +20,8 @@ export const loginController = async (req: Request, res: Response) => {
 
     const data = req.body;
 
-    const userExit = await readUserByEmail(data.email);
-    if (!userExit) {
+    const user = await readUserByEmail(data.email);
+    if (!user) {
         res.status(401).json({
             errcode: USER_NOT_FOUND,
             message: 'user not found',
@@ -29,17 +29,18 @@ export const loginController = async (req: Request, res: Response) => {
         return;
     }
 
-    const isMatch = await isHash(data.password, userExit.hash);
+    const isMatch = await isHash(data.password, user.hash);
     if (!isMatch) {
         res.status(401).json({
             errcode: WRONG_PASSWORD,
             message: 'wrong password',
         });
+        return;
     }
 
-    const token = tokenGenerator(userExit.id, userExit.role);
+    const token = tokenGenerator(user.id, user.role);
     res.status(200).json({
-        user: userExit,
+        user: user,
         token,
     });
 };
