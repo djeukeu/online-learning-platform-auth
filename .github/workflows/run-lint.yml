@@ -22,7 +22,7 @@ jobs:
             - name: Setup Nodejs
               uses: actions/setup-node@v4
               with:
-                node-version: '${{ steps.nvmrc.outputs.node_version }}'
+                  node-version: '${{ steps.nvmrc.outputs.node_version }}'
             - name: Cache node modules
               uses: actions/cache@v4
               with:
