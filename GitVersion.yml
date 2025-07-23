@@ -62,7 +62,7 @@ branches:
         regex: ^feat?[\/-](?<BranchName>.+)
         source-branches:
             - develop
-            - master
+            - main
         is-source-branch-for: []
         is-main-branch: false
         pre-release-weight: 30000
