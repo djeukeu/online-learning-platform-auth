@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 import { Response, Request, NextFunction } from 'express';
 import { verify } from 'jsonwebtoken';
 
@@ -22,10 +21,10 @@ const authorizeRequest = async (
     try {
         verify(token, config.secret_key as string);
         next();
-    } catch (err: any) {
+    } catch (err: Error | unknown) {
         res.status(401).json({
             errcode: UNAUTHENTICATED,
-            message: err.message,
+            message: (err as Error).message,
         });
     }
 };

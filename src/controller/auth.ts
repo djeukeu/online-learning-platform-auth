@@ -1,4 +1,4 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
+import { User } from '@prisma/client';
 import { Response, Request } from 'express';
 import { validationResult } from 'express-validator';
 
@@ -63,14 +63,14 @@ export const registerController = async (req: Request, res: Response) => {
     }
 
     const hash = await hashGenerator(data.password);
-    const newUser = {
+    const newUser: Partial<User> = {
         firstname: data.firstname,
         lastname: data.lastname,
         email: data.email,
         role: data?.role?.toUpperCase(),
         hash,
     };
-    const user = await createUser(newUser as any);
+    const user = await createUser(newUser as User);
     const token = tokenGenerator(user.id, user.role);
 
     res.status(200).json({
