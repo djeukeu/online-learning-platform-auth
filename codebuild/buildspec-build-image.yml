@@ -10,7 +10,7 @@ phases:
     build:
         commands:
             - echo Building image...
-            - docker build -t $REPO_URI:$IMAGE_TAG -t .
+            - docker build -t $REPO_URI:$IMAGE_TAG .
     post_build:
         commands:
             - docker push $REPO_URI:$IMAGE_TAG
